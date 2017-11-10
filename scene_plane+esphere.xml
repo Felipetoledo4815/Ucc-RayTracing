@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<scene>
+  <objects>
+    <plane element="plane" distance="2" diffuse="0 0 0" normal="0 1 0" reflection="0 0 0" reference="plane+y" ambient="0.5 0.2 0.2" />
+    <plane element="plane" distance="3" diffuse="1 0 0" normal="1 0 0" reflection="0 0 0" reference="plane+x" ambient="0.1 0 0" />
+    <plane element="plane" distance="-3" diffuse="1 1 0" normal="1 0 0" reflection="0 0 0" reference="plane-x" ambient="0.1 0.1 0" />
+    <plane element="plane" distance="5" diffuse="0 0 0" normal="0 0 1" reflection="0 0 0" reference="plane+z" ambient="0.5 0.5 0.5" />
+    <sphere element="sphere" diffuse="0 0 0" location="2 -1 5" ambient="255 0 0" radius="0.5" reference="esf" reflection="0 0 0" />
+    <sphere element="sphere" diffuse="0 0 0" location="-2 -1 5" ambient="255 255 0" radius="1" reference="esf" reflection="0 0 0" />
+    <sphere element="sphere" diffuse="0 0 0" location="0 -3 5" ambient="0 0 255" radius="0.5" reference="esf" reflection="0 0 0" />
+    <sphere element="sphere" diffuse="0 0 0" location="3 2 5" ambient="0 255 0" radius="0.5" reference="esf" reflection="0 0 0" />
+  </objects>
+  <cameras>
+    <perspective element="perspective" endrow="449" point_at="0 0 1" location="0 0 0" height="450" width="600" up="0 1 0" fov_y="40" begcol="0" begrow="0" endcol="599" reference="cam1" />
+  </cameras>
+  <lights>
+  </lights>
+</scene>

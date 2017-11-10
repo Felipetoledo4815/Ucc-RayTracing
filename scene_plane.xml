@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<scene>
+  <lights>
+  </lights>
+  <cameras>
+    <perspective reference="cam1" element="perspective" location="0 0 0" point_at="0 0 1" up="0 1 0" fov_y="40" width="200" height="150" begrow="0" endrow="149" begcol="0" endcol="199" />
+  </cameras>
+  <objects>
+    <plane reference="plane+y" element="plane" normal="0 1 0" distance="2" diffuse="0 0 0" ambient="0.5 0.2 0.2" reflection="0 0 0" />
+    <plane reference="plane+x" element="plane" normal="1 0 0" distance="3" diffuse="1 0 0" ambient="0.1 0 0" reflection="0 0 0" />
+    <plane reference="plane-x" element="plane" normal="1 0 0" distance="-3" diffuse="1 1 0" ambient="0.1 0.1 0" reflection="0 0 0" />
+    <plane reference="plane+z" element="plane" normal="0 0 1" distance="5" diffuse="0 0 0" ambient="0.5 0.5 0.5" reflection="0 0 0" />
+  </objects>
+</scene>

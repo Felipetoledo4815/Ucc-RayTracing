@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<scene>
+  <lights>
+  </lights>
+  <objects>
+    <sphere reference="esf" location="0 0 5" element="sphere" diffuse="0 0 0" reflection="0 0 0" ambient="0.5 0.2 0.2" radius="2" />
+  </objects>
+  <cameras>
+    <perspective point_at="0 0 1" up="0 1 0" begcol="0" reference="cam1" element="perspective" fov_y="40" width="200" location="0 0 0" height="150" endrow="149" begrow="0" endcol="199" />
+  </cameras>
+</scene>

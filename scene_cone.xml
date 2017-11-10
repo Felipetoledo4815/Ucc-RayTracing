@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<scene>
+  <lights>
+  </lights>
+  <cameras>
+    <perspective reference="cam1" element="perspective" location="0 0 0" point_at="0 0 1" up="0 1 0" fov_y="40" width="200" height="150" begrow="0" endrow="149" begcol="0" endcol="199" />
+  </cameras>
+  <objects>
+    <cone element="cone" ambient="255 0 0" height="1" location="5 5 10" diffuse="0 0 0" radius="0.1" reflection="0 0 0" reference="cono" />
+    <plane reference="plane+z" element="plane" normal="0 0.5 1" distance="2" diffuse="0 0 0" ambient="0.5 0.5 0.5" reflection="0 0 0" />
+  </objects>
+</scene>
