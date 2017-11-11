@@ -14,7 +14,7 @@ class Main_menu1(Gtk.MenuBar):
         self.parent = parent
 
         for key in ["Archivo", "Editar", "Herramientas", "Ayuda"]:
-            item = Gtk.MenuItem(key)
+            item = Gtk.MenuItem(" " + key + " ")
             self.main_menu[key] = Gtk.Menu()
             item.set_submenu(self.main_menu[key])
             self.add(item)

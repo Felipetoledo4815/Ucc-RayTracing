@@ -8,6 +8,7 @@ import sys
 
 from xml_main_menu import Main_menu1
 from renderer import Renderer
+from viewer import Viewer
 import pdb
 
 
@@ -53,19 +54,21 @@ class Prop_table():
         "lights": {
             "xlate": "Luces",
             "kinds": {
+    #           |       |
     #           V       |
                 "point": {
                     "xlate": "Puntual",
                     "params": {
+    #                   |
     #                   V
                         "location": {"xlate": "Ubicación", "type": "vector"},
-                        "point_at": {"xlate": "Apunta a",  "type": "vector"},
                         "color":    {"xlate": "Color",     "type": "rgb"}}},
 
                 "directional": {
                     "xlate": "Direccional",
                     "params": {
                         "direction": {"xlate": "Dirección", "type": "vector"},
+                        "point_at":  {"xlate": "Apunta a",  "type": "vector"},
                         "color":     {"xlate": "Color",     "type": "rgb"}}}
             }
         },
@@ -125,8 +128,9 @@ class Prop_table():
                         "diffuse":    {"xlate": "Difusa",     "type": "rgb"},
                         "ambient":    {"xlate": "Ambiente",    "type": "rgb"},
                         "reflection": {"xlate": "Reflexión",  "type": "rgb"}}},
+
                 "cone": {
-                    "xlate": "Cone",
+                    "xlate": "Cono",
                     "params": {
                         "location": {"xlate": "Ubicación", "type": "vector"},
                         "height": {"xlate": "Alto", "type": "float"},
@@ -194,7 +198,8 @@ class Prop_editor(Gtk.Dialog):
         wdg = Gtk.Entry()
         self.grid.attach(wdg, 1, 0, 1, 1)
 
-        # Siempre agregar el tipo de elemento (no editable - fue elegido en el popup)
+        # Siempre agregar el tipo de elemento (no editable - 
+        # fue elegido en el popup)
         lbl = Gtk.Label("Element:", xalign = 1.0)
         lbl.xref = 'element'
 
@@ -535,24 +540,6 @@ class Scene(Gtk.Frame):
 
         fc_dialog.destroy()
 
-
-
-class Viewer(Gtk.Frame):
-    def __init__(self, toplevel):
-        super(Viewer, self).__init__(
-                    label = "Imagen")
-        self.toplevel = toplevel
-
-        self.img = Gtk.Image()
-        self.scroller = Gtk.ScrolledWindow(
-                    margin = 4)
-        self.scroller.add(self.img)
-
-        self.add(self.scroller)
-
-
-    def update(self, pixbuf):
-        self.img.set_from_pixbuf(pixbuf)
 
 
 

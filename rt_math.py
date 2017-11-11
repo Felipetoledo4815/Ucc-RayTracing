@@ -16,10 +16,12 @@ class Vec3():
             self.x = float(v[0])
             self.y = float(v[1])
             self.z = float(v[2])
+        elif isinstance(x, tuple):
+            self.x, self.y, self.z = x
         elif isinstance(x, Vec3):
             self.x, self.y, self.z = x.x, x.y, x.z
         else:
-            self.x = x; self.y = y; self.z = z
+            self.x, self.y, self.z = x, y, z
 
     def __str__(self):
         return "Vec3 ({:.6g}, {:.6g}, {:.6g})".format(self.x, self.y, self.z)
@@ -48,11 +50,15 @@ class Vec3():
                     self.y + v3.y,
                     self.z + v3.z)
 
+    def mult(self, v3):
+        return Vec3(self.x * v3.x,
+                    self.y * v3.y,
+                    self.z * v3.z)
+
     def subtract(self, v3):
         return Vec3(self.x - v3.x,
                     self.y - v3.y,
                     self.z - v3.z)
-
 
     def scale(self, scalar):
         return Vec3(self.x * scalar,
@@ -96,6 +102,10 @@ def main():
     a = Vec3(2, 3, 4)
     b = Vec3(5, 6, 7)
     print(a.cross(b))
+
+    a = Vec3(2, 3, 4)
+    b = Vec3(5, 6, 7)
+    print(a.mult(b))
 
 if __name__ == '__main__':
     main()

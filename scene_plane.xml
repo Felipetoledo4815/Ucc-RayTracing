@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <scene>
   <lights>
+    <point reference="pl_1" element="point" location="1.5 1.5 2.4" color="0.1 0.1 0.1" />
   </lights>
   <cameras>
     <perspective reference="cam1" element="perspective" location="0 0 0" point_at="0 0 1" up="0 1 0" fov_y="40" width="200" height="150" begrow="0" endrow="149" begcol="0" endcol="199" />
