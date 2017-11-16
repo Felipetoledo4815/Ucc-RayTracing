@@ -107,7 +107,8 @@ class Sphere(Thing):
         else:
             return d2
 
-
+#http://lousodrome.net/blog/light/2017/01/03/intersection-of-a-ray-and-a-cone/
+#https://stackoverflow.com/questions/13792861/surface-normal-to-a-cone
 class Cone(Thing):
     def __init__(self, props):
         super(Cone, self).__init__(props)
@@ -134,7 +135,12 @@ class Cone(Thing):
             d = -b / (2*a)
             aux = ray.direct.scale(d).subtract(c).dot(v)
             if(aux>0):
-                n = ray.direct.scale(d).subtract(Vec3(self.center)) #Sacar NORMAL del Cono
+                v = Vec3(ray.direct.scale(d).subtract(Vec3(self.center)))
+                v2 = Vec3(ray.direct.scale(d).subtract(c))
+
+                prod = v.cross(v2)
+                n = v2.cross(prod).normalize()
+
                 return [Hit(d, n, self)]
             else:
                 return []
@@ -147,7 +153,12 @@ class Cone(Thing):
             d = self.closest(d1, d2)
             aux = ray.direct.scale(d).subtract(c).dot(v)
             if(aux>0):
-                n = ray.direct.scale(d).subtract(Vec3(self.center)) #Sacar NORMAL del Cono
+                v = Vec3(ray.direct.scale(d).subtract(Vec3(self.center)))
+                v2 = Vec3(ray.direct.scale(d).subtract(c))
+
+                prod = v.cross(v2)
+                n = v2.cross(prod).normalize()
+
                 return [Hit(d, n, self)]
             else:
                 return []

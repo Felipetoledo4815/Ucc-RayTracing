@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <scene>
   <lights>
+    <point reference="pl_1" element="point" location="1.5 1.5 2.4" color="0.1 0.1 0.1"/>
   </lights>
   <objects>
     <sphere reference="esf" location="0 0 5" element="sphere" diffuse="0 0 0" reflection="0 0 0" ambient="0.5 0.2 0.2" radius="2" />

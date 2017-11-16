@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <scene>
+  <lights>
+    <point reference="pl_1" element="point" location="1.5 1.5 2.4" color="0.1 0.1 0.1"/>
+  </lights>
   <objects>
     <plane element="plane" distance="2" diffuse="0 0 0" normal="0 1 0" reflection="0 0 0" reference="plane+y" ambient="0.5 0.2 0.2" />
     <plane element="plane" distance="3" diffuse="1 0 0" normal="1 0 0" reflection="0 0 0" reference="plane+x" ambient="0.1 0 0" />
