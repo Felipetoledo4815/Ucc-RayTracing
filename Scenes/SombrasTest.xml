@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<scene>
+  <lights>
+    <point reference="pl_1" element="point" location="-3 2 0" color="0.1 0.1 0.1"/>
+  </lights>
+  <cameras>
+    <perspective reference="cam1" element="perspective" location="0 0 0" point_at="0 0 1" up="0 1 0" fov_y="40" width="200" height="150" begrow="0" endrow="149" begcol="0" endcol="199" />
+  </cameras>
+  <objects>
+    <!--<plane reference="plane+y" element="plane" normal="0 1 0" distance="3" diffuse="0.12 0.7 0.88" ambient="0.5 0.1 0.1" reflection="0 0 0" />-->
+    <plane reference="plane-y" element="plane" normal="0 1 0" distance="-3" diffuse="0 0.55 0.6" ambient="0.7 0.2 0.1" reflection="0 0 0" />
+    <plane reference="plane+z" element="plane" normal="0 0 1" distance="7" diffuse="0.1 0.4 0" ambient="0.4 0.1 0" reflection="0 0 0" />
+    <plane reference="planeCAMARA" element="plane" normal="0 0 1" distance="0" diffuse="0 0 0" ambient="0 0 0" reflection="0 0 0" />
+    <plane reference="plane+x" element="plane" normal="1 0 0" distance="4.5" diffuse="0.51 0.3 0" ambient="0.18 0.4 0.77" reflection="0 0 0" />
+    <plane reference="plane-x" element="plane" normal="1 0 0" distance="-4.5" diffuse="0.41 0.6 0" ambient="0.3 0.1 0.8" reflection="0 0 0" />
+    <cone element="cone" radius="0.41" reflection="0 0 0" height=".81" ambient="0.4 0.3 0.7" location="-1 0 4" diffuse="0.4 0.4 0.2" reference="Cono" />
+    <sphere element="sphere" diffuse="0.4 0.4 0.2" location="1 0 2" ambient="0.4 0.3 0.7" radius="0.5" reference="esf" reflection="0 0 0" />
+  </objects>
+</scene>

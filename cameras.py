@@ -70,6 +70,7 @@ class Hit_list():
         return nearest_hit
 
 
+
     def append(self, new_hits):
         """ Agrega un impacto a la lista """
         self.hits += new_hits
@@ -145,8 +146,9 @@ class Camera():
         hits = Hit_list()
 
         for obj in self.objects:
-            new_hits = obj.intersection(ray)
-            hits.append(new_hits)
+            if obj.props["reference"] != "planeCAMARA":
+                new_hits = obj.intersection(ray)
+                hits.append(new_hits)
 
         nearest_hit = hits.nearest()
 
@@ -155,10 +157,40 @@ class Camera():
         else:
             #~ pdb.set_trace()
             amb_col = nearest_hit.obj.ambient
-            cos_ang = abs(nearest_hit.normal.dot(ray.direct))
-            dif_col = nearest_hit.obj.diffuse.scale(cos_ang)
-            col = Vec3(amb_col).add(dif_col)
-            return col.as_RGB()
+
+            ShadowRay = Ray(ray.direct.scale(nearest_hit.t),
+                            Vec3(self.lights[0].props["location"]).subtract(ray.direct.scale(nearest_hit.t)).normalize())
+
+            Epsilon = Vec3(ShadowRay.direct.x * 0.01, ShadowRay.direct.y * 0.01, ShadowRay.direct.z * 0.01)
+            OriginPlusEpsilon = Vec3(ShadowRay.orig.x + Epsilon.x, ShadowRay.orig.y + Epsilon.y, ShadowRay.orig.z +Epsilon.z)
+            ShadowRay.orig = OriginPlusEpsilon
+
+            if self.shadow(ShadowRay):
+                return Vec3(amb_col).as_RGB()
+            else:
+                cos_ang = abs(nearest_hit.normal.dot(ray.direct))
+                dif_col = nearest_hit.obj.diffuse.scale(cos_ang)
+                col = Vec3(amb_col).add(dif_col)
+                return col.as_RGB()
+
+
+    def shadow(self, ray):
+        hits2 = Hit_list()
+
+        for obj in self.objects:
+            new_hits = obj.intersection(ray)
+            hits2.append(new_hits)
+
+
+        nearest_hit = hits2.nearest()
+
+        if nearest_hit == None:
+            return False
+        else:
+            if nearest_hit.obj.props["reference"] == "planeCAMARA":
+                return False
+            else:
+                return True
 
 
 def main(args):
