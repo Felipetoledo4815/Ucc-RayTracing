@@ -176,7 +176,8 @@ class Camera():
 
                 # Calculo Luz Phong
                 R = nearest_hit.normal.scale(2 * (ShadowRay.direct.dot(nearest_hit.normal))).subtract(ShadowRay.direct)
-                phong_col = nearest_hit.obj.reflection.scale(R.dot(ray.direct) ** 160).mult(Vec3(self.lights[0].props["color"]))
+                phong_col = nearest_hit.obj.reflection.scale(R.dot(ray.direct) ** 160)
+                # .mult(Vec3(self.lights[0].props["color"]))
                 col = col.add(phong_col)
 
                 return col.as_RGB()
