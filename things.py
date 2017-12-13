@@ -133,10 +133,10 @@ class Cone(Thing):
             return []
         elif (square_root == 0):
             d = -b / (2*a)
-            aux = ray.direct.scale(d).subtract(c).dot(v)
+            aux = ray.orig.add(ray.direct.scale(d)).subtract(c).dot(v)
             if(aux>0):
-                v = Vec3(ray.direct.scale(d).subtract(Vec3(self.center)))
-                v2 = Vec3(ray.direct.scale(d).subtract(c))
+                v = Vec3(ray.orig.add(ray.direct.scale(d)).subtract(Vec3(self.center)))
+                v2 = Vec3(ray.orig.add(ray.direct.scale(d)).subtract(c))
 
                 prod = v.cross(v2)
                 n = v2.cross(prod).normalize()
@@ -151,10 +151,10 @@ class Cone(Thing):
                 return []
 
             d = self.closest(d1, d2)
-            aux = ray.direct.scale(d).subtract(c).dot(v)
+            aux = ray.orig.add(ray.direct.scale(d)).subtract(c).dot(v)
             if(aux>0):
-                v = Vec3(ray.direct.scale(d).subtract(Vec3(self.center)))
-                v2 = Vec3(ray.direct.scale(d).subtract(c))
+                v = Vec3(ray.orig.add(ray.direct.scale(d)).subtract(Vec3(self.center)))
+                v2 = Vec3(ray.orig.add(ray.direct.scale(d)).subtract(c))
 
                 prod = v.cross(v2)
                 n = v2.cross(prod).normalize()
