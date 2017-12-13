@@ -158,6 +158,7 @@ class Camera():
             #~ pdb.set_trace()
             amb_col = nearest_hit.obj.ambient
 
+            # Calculo rayo que va hacia la luz desde el punto de impacto. El rayo se va a llamar "ShadowRay"
             ShadowRay = Ray(ray.direct.scale(nearest_hit.t),
                             Vec3(self.lights[0].props["location"]).subtract(ray.direct.scale(nearest_hit.t)).normalize())
 
@@ -165,12 +166,19 @@ class Camera():
             OriginPlusEpsilon = Vec3(ShadowRay.orig.x + Epsilon.x, ShadowRay.orig.y + Epsilon.y, ShadowRay.orig.z +Epsilon.z)
             ShadowRay.orig = OriginPlusEpsilon
 
-            if self.shadow(ShadowRay):
+            if self.shadow(ShadowRay):                 # Hay sombra
                 return Vec3(amb_col).as_RGB()
-            else:
+            else:                                      # No hay sombra
+                # Calculo Luz Difusa
                 cos_ang = abs(nearest_hit.normal.dot(ray.direct))
                 dif_col = nearest_hit.obj.diffuse.scale(cos_ang)
                 col = Vec3(amb_col).add(dif_col)
+
+                # Calculo Luz Phong
+                R = nearest_hit.normal.scale(2 * (ShadowRay.direct.dot(nearest_hit.normal))).subtract(ShadowRay.direct)
+                phong_col = nearest_hit.obj.reflection.scale(R.dot(ray.direct) ** 160).mult(Vec3(self.lights[0].props["color"]))
+                col = col.add(phong_col)
+
                 return col.as_RGB()
 
 

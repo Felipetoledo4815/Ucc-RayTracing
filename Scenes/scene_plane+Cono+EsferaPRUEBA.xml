@@ -10,7 +10,8 @@
     <plane reference="plane-x" element="plane" normal="1 0 0" distance="-3" diffuse="0.41 0.6 0" ambient="0.3 0.1 0.8" reflection="0 0 0" />
     <plane reference="plane+z" element="plane" normal="0 0 1" distance="5" diffuse="0.1 0.4 0" ambient="0.4 0.1 0" reflection="0 0 0" />
     <plane reference="planeCAMARA" element="plane" normal="0 0 1" distance="0" diffuse="0 0 0" ambient="0 0 0" reflection="0 0 0" />
-    <cone element="cone" radius="0.41" reflection="0.9 0.9 0.9" height=".81" ambient="0.4 0.3 0.7" location="0 0 4" diffuse="0.4 0.4 0.2" reference="Cono" />
+    <cone element="cone" radius="0.41" reflection="0 0 0" height=".81" ambient="0.4 0.3 0.7" location="-2 0 4" diffuse="0.4 0.4 0.2" reference="Cono" />
+    <sphere element="sphere" diffuse="0.4 0.4 0.2" location="2 0 4" ambient="0.4 0.3 0.24" radius="0.5" reference="esf" reflection="0 0 0" />
   </objects>
   <cameras>
     <perspective fov_y="40" reference="cam1" endcol="599" width="600" begrow="0" point_at="0 0 1" begcol="0" height="450" element="perspective" location="0 0 0" up="0 1 0" endrow="449" />
